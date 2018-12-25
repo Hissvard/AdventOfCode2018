@@ -22,7 +22,10 @@ fun main(args: Array<String>) {
 
 fun File.linesWithRepeatedLetters(repeatedTimes: Int): Int {
     val hasOccurrency: (String, Int) -> Boolean = { line: String, occurrencesCount: Int ->
-        val charOccurrences: MutableMap<Char, Int> = line.toSet().associateBy({it}, {0}).toMutableMap()
+        val charOccurrences: MutableMap<Char, Int> = line
+            .toSet()
+            .associateBy({it}, {0})
+            .toMutableMap()
 
         line.forEach {
             charOccurrences[it] = charOccurrences[it]!! + 1
